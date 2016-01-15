@@ -5,10 +5,20 @@
   <meta charset="UTF-8">
   <title>Practice Angular</title>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="myscript.js"></script>
 </head>
 <body>
   <h1>Practice Angular</h1>
+
+
   <input type="text" ng-model="name">
-  <p>Hello!</p>
+
+  <p>Hello! {{name}}</p>
+  <p>Hello! {{5 * 3}}</p>
+
+  <div ng-repeat="n in [42, 42, 43, 43] track by $index">
+    value = {{n}}
+  </div>
+
 </body>
 </html>

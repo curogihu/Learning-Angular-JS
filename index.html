@@ -1,24 +1,20 @@
 <!DOCTYPE html>
 <!-- ng = A[ng]ular JS -->
-<html lang="ja" ng-app>
+<html ng-app="store">
 <head>
   <meta charset="UTF-8">
   <title>Practice Angular</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-  <script src="myscript.js"></script>
+  <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
 </head>
 <body>
-  <h1>Practice Angular</h1>
 
-
-  <input type="text" ng-model="name">
-
-  <p>Hello! {{name}}</p>
-  <p>Hello! {{5 * 3}}</p>
-
-  <div ng-repeat="n in [42, 42, 43, 43] track by $index">
-    value = {{n}}
+  <div ng-controller="StoreController as store">
+      <h1>{{store.product.name}}</h1>
+      <h2>${{store.product.price}}</h2>
+      <p>{{store.product.description}}</p>
   </div>
 
+  <script type="text/javascript" src="angular.min.js"></script>
+  <script type="text/javascript" src="app.js"></script>
 </body>
 </html>

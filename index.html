@@ -13,29 +13,95 @@
   <!-- <div ng-repeat="product in store.products | limitTo:1"> -->
   <!-- ascending order <div ng-repeat="product in store.products | orderBy:'price'"> -->
   <div ng-repeat="product in store.products | orderBy:'-price'">
-      <h1>{{product.name}}</h1>
-      <!-- <h2>${{product.price}}</h2> -->
-      <!-- {{ data | filter:options }} -->
-      <h2>{{product.price | currency}}</h2>
-      <p>Date: {{'1388123412323' | date:'MM/dd/yyyy @ h:mma'}} </p>
-      <p>{{'abcdefg' | uppercase}} </p>
-      <p>{{'XYZ' | lowercase}} </p>
-      <p>{{'My Descripiton' | limitTo:8}}</p>
-      <p>{{product.description}}</p>
-      <img ng-src="{{product.images[0].full}}"/>
+    <h1>{{product.name}}</h1>
+    <!-- <h2>${{product.price}}</h2> -->
+    <!-- {{ data | filter:options }} -->
+    <h2>{{product.price | currency}}</h2>
+    <p>Date: {{'1388123412323' | date:'MM/dd/yyyy @ h:mma'}} </p>
+    <p>{{'abcdefg' | uppercase}} </p>
+    <p>{{'XYZ' | lowercase}} </p>
+    <p>{{'My Descripiton' | limitTo:8}}</p>
+    <p>{{product.description}}</p>
+    <img ng-src="{{product.images[0].full}}"/>
+
+    <!-- <section ng-init="tab = 2"> -->
 <!--
-  <img src="{{product.images[0].full}}" /> is wrong.
-  the browser tries to load the images before the Expression evaluates.
+    <section ng-controller="PanelController as panel">
+      <ul class="nav nav-pills">
+        <li ng-class="{active:tab === 1}">
+          <a href ng-click="tab = 1">Description</a>
+        </li>
 
+        <li ng-class="{active:tab === 2}">
+          <a href ng-click="tab = 2">Specifications</a>
+        </li>
 
+        <li ng-class="{ active:tab === 3}">
+          <a href ng-click="tab = 3">Reviews</a>
+        </li>
+      </ul>
 
+      {{tab}}
+    </section>
+-->
+    <section ng-controller="PanelController as panel">
+      <ul class="nav nav-pills">
+        <li ng-class="{active: panel.isSelected(1)}">
+          <a href ng-click="panel.selectTab(1)">Description</a>
+        </li>
+
+        <li ng-class="{active: panel.isSelected(2)}">
+          <a href ng-click="panel.selectTab(2)">Specifications</a>
+        </li>
+
+        <li ng-class="{active: panel.isSelected(3)}">
+          <a href ng-click="panel.selectTab(3)">Reviews</a>
+        </li>
+      </ul>
+
+      {{tab}}
+
+      <div class="panel" ng-show="panel.isSelected(1)">
+        <h4>Description</h4>
+        <p>{{product.description}}</p>
+      </div>
+
+      <div class="panel" ng-show="panel.isSelected(2)">
+        <h4>Specifications</h4>
+        <p>None yet</p>
+      </div>
+
+      <div class="panel" ng-show="panel.isSelected(3)">
+        <h4>Reviews</h4>
+        <p>None</p>
+      </div>
+    </section>
+
+<!--
+    <div class="panel" ng-show="tab === 1">
+      <h4>Description</h4>
+      <p>{{product.description}}</p>
+    </div>
+
+    <div class="panel" ng-show="tab === 2">
+      <h4>Specifications</h4>
+      <p>None yet</p>
+    </div>
+
+    <div class="panel" ng-show="tab === 3">
+      <h4>Reviews</h4>
+      <p>None yet</p>
+    </div>
 -->
 
 
-
+<!--
+  <img src="{{product.images[0].full}}" /> is wrong.
+  the browser tries to load the images before the Expression evaluates.
+-->
       <!-- if canPurchase is true this element appears -->
-      <button ng-show="product.canPurchase">Add to Cart</button>
-      <p>-------------------------</p>
+    <button ng-show="product.canPurchase">Add to Cart</button>
+    <p>-------------------------</p>
   </div>
 
   <script type="text/javascript" src="angular.min.js"></script>

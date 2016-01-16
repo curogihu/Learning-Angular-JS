@@ -12,6 +12,16 @@
       description: '...',
       canPurchase: true,
       soldOut: false,
+      images: [
+        {
+          full: '1a-full.jpg',
+          thumb: '1a-thumb.jpg'
+        },
+        {
+          full: '1b-full.jpg',
+          thumb: '1b-thumb.jpg'
+        }
+      ]
     },
 
     {
@@ -20,6 +30,12 @@
       description: '....',
       canPurchase: true,
       soldOut: false,
+      images: [
+        {
+          full: '2a-full.jpg',
+          thumb: '2a-thumb.jpg'
+        }
+      ]
     },
 
   ];

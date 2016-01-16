@@ -9,10 +9,30 @@
 <body ng-controller="StoreController as store">
 
 <!-- <div ng-show="!store.product.soldOut"> -->
-  <div ng-repeat="product in store.products">
+  <!-- <div ng-repeat="product in store.products"> -->
+  <!-- <div ng-repeat="product in store.products | limitTo:1"> -->
+  <!-- ascending order <div ng-repeat="product in store.products | orderBy:'price'"> -->
+  <div ng-repeat="product in store.products | orderBy:'-price'">
       <h1>{{product.name}}</h1>
-      <h2>${{product.price}}</h2>
+      <!-- <h2>${{product.price}}</h2> -->
+      <!-- {{ data | filter:options }} -->
+      <h2>{{product.price | currency}}</h2>
+      <p>Date: {{'1388123412323' | date:'MM/dd/yyyy @ h:mma'}} </p>
+      <p>{{'abcdefg' | uppercase}} </p>
+      <p>{{'XYZ' | lowercase}} </p>
+      <p>{{'My Descripiton' | limitTo:8}}</p>
       <p>{{product.description}}</p>
+      <img ng-src="{{product.images[0].full}}"/>
+<!--
+  <img src="{{product.images[0].full}}" /> is wrong.
+  the browser tries to load the images before the Expression evaluates.
+
+
+
+-->
+
+
+
       <!-- if canPurchase is true this element appears -->
       <button ng-show="product.canPurchase">Add to Cart</button>
       <p>-------------------------</p>

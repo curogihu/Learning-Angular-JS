@@ -17,6 +17,14 @@
     this.products = gem;
   });
 
+  app.controller("ReviewController", function(){
+    this.review = {};
+
+    this.addReview = function(product){
+      product.reviews.push(this.review);
+    }
+  })
+
   var gem = [
     {
       name: 'Dodecahedron',
@@ -33,9 +41,20 @@
           full: '1b-full.jpg',
           thumb: '1b-thumb.jpg'
         }
+      ],
+      reviews: [
+        {
+          stars: 5,
+          body: "I love this product!",
+          author: "aaaa@aaaa.com"
+        },
+        {
+          stars: 4,
+          body: "I live this product!",
+          author: "bbbbb@bbbbb.com"
+        }
       ]
     },
-
     {
       name: 'Dodecahedron-A',
       price: 2.96,
@@ -46,6 +65,18 @@
         {
           full: '2a-full.jpg',
           thumb: '2a-thumb.jpg'
+        }
+      ],
+      reviews: [
+        {
+          stars: 5,
+          body: "I love this product!",
+          author: "aaaa@aaaa.com"
+        },
+        {
+          stars: 4,
+          body: "I live this product!",
+          author: "bbbbb@bbbbb.com"
         }
       ]
     },

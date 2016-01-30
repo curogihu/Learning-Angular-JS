@@ -1,33 +1,14 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="diveLog">
 <head>
   <meta charset="UTF-8">
-  <title>Dive Log (AngularJS)</title>
+  <title>Dive Log (ng-controller)</title>
   <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
   <div class="container-fluid">
-    <h1>My Latest Dives (AngularJS)</h1>
-    <div class="row" ng-init="dives=[
-      {
-        site: 'Abu Gotta Ramad',
-        location: 'Hurghada, Egypt',
-        depth: 72,
-        time: 54
-      },
-      {
-        site: 'Ponte Mahoon',
-        location: 'Maehbourg, Mauritius',
-        depth: 54,
-        time: 38
-      },
-      {
-        site: 'Molnar Cave',
-        location: 'Budapest, Hungary',
-        depth: 98,
-        time: 62
-      }]">
-
+    <h1>My Latest Dives (ng-controller)</h1>
+    <div class="row" ng-controller="diveLogCtrl">
       <div class="col-sm-4" ng-repeat="dive in dives">
         <h3>{{dive.site}}</h3>
         <h4>{{dive.location}}</h4>
@@ -37,6 +18,15 @@
   <div>
 
   <script src="js/angular.min.js"></script>
+  <script src="js/dives.js"></script>
+  <script>
+    angular.module('diveLog', [])
+      .controller('diveLogCtrl', DiveLogCtrl);
+
+      function DiveLogCtrl($scope){
+        $scope.dives = dives;
+      }
+  </script>
 
 </body>
 </html>
